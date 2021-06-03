@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>maplibrary</class>
+ <widget class="QMainWindow" name="maplibrary">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>597</width>
+    <height>409</height>
+   </rect>
+  </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>maplibrary</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>597</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menumanage_book">
+    <property name="title">
+     <string>manage book</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menumanage_groujp">
+    <property name="title">
+     <string>manage group</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menumanage_account">
+    <property name="title">
+     <string>manage account</string>
+    </property>
+   </widget>
+   <addaction name="menumanage_book"/>
+   <addaction name="menumanage_groujp"/>
+   <addaction name="menumanage_account"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::AllToolBarAreas</set>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>RightToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionlogin"/>
+   <addaction name="actionbook"/>
+   <addaction name="actiongroup"/>
+   <addaction name="actionaccount"/>
+   <addaction name="actionexit"/>
+  </widget>
+  <action name="actionlogin">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-user.svg</normaloff>:/new/svg/resource/svg/fi-rr-user.svg</iconset>
+   </property>
+   <property name="text">
+    <string>login</string>
+   </property>
+  </action>
+  <action name="actionexit">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/png/resource/png/emergency-exit.png</normaloff>:/new/png/resource/png/emergency-exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>exit</string>
+   </property>
+  </action>
+  <action name="actionbook">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/png/resource/png/books-stack-of-three.png</normaloff>:/new/png/resource/png/books-stack-of-three.png</iconset>
+   </property>
+   <property name="text">
+    <string>book</string>
+   </property>
+  </action>
+  <action name="actiongroup">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/png/resource/png/library.png</normaloff>:/new/png/resource/png/library.png</iconset>
+   </property>
+   <property name="text">
+    <string>group</string>
+   </property>
+  </action>
+  <action name="actionaccount">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-users.svg</normaloff>:/new/svg/resource/svg/fi-rr-users.svg</iconset>
+   </property>
+   <property name="text">
+    <string>account</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="image.qrc"/>
+ </resources>
+ <connections/>
+</ui>
