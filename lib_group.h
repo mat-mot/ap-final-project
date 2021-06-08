@@ -3,15 +3,19 @@
 
 #include <QString>
 #include <QList>
+#include <QVector>
 
 class lib_group
 {
 private:
-    QList<QString> groupwmember ;
+    QString grpname ;
+    QList<QString> grpmember ;
 public:
     lib_group();
-    QList<QString> getGroupwmember() const;
-    void setGroupwmember(const QList<QString> &value);
+    QList<QString> getGrpmember() const;
+    void setGrpmember(const QList<QString> &value);
+    QString getGrpname() const;
+    void setGrpname(const QString &value);
 };
 
 #endif // GROUP_H

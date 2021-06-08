@@ -11,8 +11,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
-
-
+#include <QListWidgetItem>
+#include <QSharedPointer>
 QT_BEGIN_NAMESPACE
 namespace Ui { class maplibrary; }
 QT_END_NAMESPACE
@@ -31,9 +31,13 @@ public:
 private:
     Ui::maplibrary *ui;
     lib_file m_data ;
+    lib_user current_user ;
 
     // QWidget interface
 protected:
     void closeEvent(QCloseEvent *event) override;
+private slots:
+    void on_listofthings_itemClicked(QListWidgetItem *item);
+    void on_listofthings_itemDoubleClicked(QListWidgetItem *item);
 };
 #endif // MAPLIBRARY_H

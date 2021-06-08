@@ -5,6 +5,7 @@
 #include "lib_book.h"
 #include "lib_group.h"
 #include <QFile>
+#include <QVector>
 #include <QTextStream>
 #include <QDebug>
 class lib_file

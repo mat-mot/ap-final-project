@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QList>
+#include <QVector>
 
 class lib_book
 {

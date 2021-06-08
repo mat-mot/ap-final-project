@@ -1,13 +1,23 @@
 #include "lib_group.h"
 
-QList<QString > lib_group::getGroupwmember() const
+QList<QString > lib_group::getGrpmember() const
 {
-    return groupwmember;
+    return grpmember;
 }
 
-void lib_group::setGroupwmember(const QList<QString > &value)
+void lib_group::setGrpmember(const QList<QString > &value)
 {
-    groupwmember = value;
+    grpmember = value;
+}
+
+QString lib_group::getGrpname() const
+{
+    return grpname;
+}
+
+void lib_group::setGrpname(const QString &value)
+{
+    grpname = value;
 }
 
 lib_group::lib_group()

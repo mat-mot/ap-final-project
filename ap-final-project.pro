@@ -14,6 +14,7 @@ SOURCES += \
     lib_group.cpp \
     lib_user.cpp \
     main.cpp \
+    manage.cpp \
     maplibrary.cpp
 
 HEADERS += \
@@ -21,9 +22,11 @@ HEADERS += \
     lib_file.h \
     lib_group.h \
     lib_user.h \
+    manage.h \
     maplibrary.h
 
 FORMS += \
+    manage.ui \
     maplibrary.ui
 
 # Default rules for deployment.

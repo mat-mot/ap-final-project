@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QList>
+#include <QVector>
 class lib_user
 {
 private:
@@ -22,7 +23,7 @@ public:
     void setEmailaddres(const QString &value);
     QString getPcode() const;
     void setPcode(const QString &value);
-    QList<QString> getBorrowbook() const;
+    QList<QString>  getBorrowbook() const;
     void setBorrowbook(const QList<QString> &value);
     unsigned long long getHashedpassword() const;
     void setHashedpassword(unsigned long long value);
