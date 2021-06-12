@@ -1,6 +1,7 @@
 #ifndef MAPLIBRARY_H
 #define MAPLIBRARY_H
-
+#include"manage.h"
+#include"register_login.h"
 #include <QMainWindow>
 #include <QString>
 #include <QList>
@@ -37,7 +38,12 @@ private:
 protected:
     void closeEvent(QCloseEvent *event) override;
 private slots:
-    void on_listofthings_itemClicked(QListWidgetItem *item);
-    void on_listofthings_itemDoubleClicked(QListWidgetItem *item);
+    void on_actionlogin_triggered();
+    void on_actionSave_triggered();
+    void on_actionexit_triggered();
+    void on_actionExit_triggered();
+    void on_actionContact_Us_triggered();
+    void on_actionSave_Data_triggered();
+    void on_actionmanage_triggered();
 };
 #endif // MAPLIBRARY_H

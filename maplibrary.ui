@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>597</width>
-    <height>409</height>
+    <width>686</width>
+    <height>398</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -23,6 +23,9 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTextEdit" name="searchbox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -31,6 +34,9 @@
       </property>
       <property name="cursor" stdset="0">
        <cursorShape>IBeamCursor</cursorShape>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
       </property>
       <property name="verticalScrollBarPolicy">
        <enum>Qt::ScrollBarAsNeeded</enum>
@@ -76,7 +82,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>597</width>
+     <width>686</width>
      <height>20</height>
     </rect>
    </property>
@@ -123,6 +129,17 @@
     <addaction name="actionContact_Us"/>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menuaccount">
+    <property name="title">
+     <string>Account</string>
+    </property>
+    <addaction name="actionLogin"/>
+    <addaction name="actionEdit"/>
+    <addaction name="actionRegister"/>
+    <addaction name="separator"/>
+    <addaction name="actionLogout"/>
+   </widget>
+   <addaction name="menuaccount"/>
    <addaction name="Manage"/>
    <addaction name="menuTools"/>
   </widget>
@@ -144,9 +161,8 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionlogin"/>
-   <addaction name="actionbook"/>
-   <addaction name="actiongroup"/>
-   <addaction name="actionaccount"/>
+   <addaction name="actionmanage"/>
+   <addaction name="actionSave"/>
    <addaction name="actionexit"/>
   </widget>
   <action name="actionlogin">
@@ -164,37 +180,22 @@
   <action name="actionexit">
    <property name="icon">
     <iconset resource="image.qrc">
-     <normaloff>:/new/png/resource/png/emergency-exit.png</normaloff>:/new/png/resource/png/emergency-exit.png</iconset>
+     <normaloff>:/new/svg/resource/svg/fi-rr-cross-circle.svg</normaloff>:/new/svg/resource/svg/fi-rr-cross-circle.svg</iconset>
    </property>
    <property name="text">
     <string>exit</string>
    </property>
   </action>
-  <action name="actionbook">
+  <action name="actionmanage">
    <property name="icon">
     <iconset resource="image.qrc">
      <normaloff>:/new/png/resource/png/books-stack-of-three.png</normaloff>:/new/png/resource/png/books-stack-of-three.png</iconset>
    </property>
    <property name="text">
-    <string>book</string>
+    <string>Manage</string>
    </property>
-  </action>
-  <action name="actiongroup">
-   <property name="icon">
-    <iconset resource="image.qrc">
-     <normaloff>:/new/png/resource/png/library.png</normaloff>:/new/png/resource/png/library.png</iconset>
-   </property>
-   <property name="text">
-    <string>group</string>
-   </property>
-  </action>
-  <action name="actionaccount">
-   <property name="icon">
-    <iconset resource="image.qrc">
-     <normaloff>:/new/svg/resource/svg/fi-rr-users.svg</normaloff>:/new/svg/resource/svg/fi-rr-users.svg</iconset>
-   </property>
-   <property name="text">
-    <string>account</string>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
    </property>
   </action>
   <action name="actionnewbook">
@@ -243,18 +244,84 @@
    </property>
   </action>
   <action name="actionSave_Data">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-cloud-check.svg</normaloff>:/new/svg/resource/svg/fi-rr-cloud-check.svg</iconset>
+   </property>
    <property name="text">
     <string>Save Data</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="actionContact_Us">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-signal-alt-2.svg</normaloff>:/new/svg/resource/svg/fi-rr-signal-alt-2.svg</iconset>
+   </property>
    <property name="text">
     <string>Contact Us</string>
    </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-cross-small.svg</normaloff>:/new/svg/resource/svg/fi-rr-cross-small.svg</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionLogin">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-user.svg</normaloff>:/new/svg/resource/svg/fi-rr-user.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Login</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionEdit">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-user-time.svg</normaloff>:/new/svg/resource/svg/fi-rr-user-time.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Edit</string>
+   </property>
+  </action>
+  <action name="actionRegister">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-user-add.svg</normaloff>:/new/svg/resource/svg/fi-rr-user-add.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Register</string>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-user-delete.svg</normaloff>:/new/svg/resource/svg/fi-rr-user-delete.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-cloud-check.svg</normaloff>:/new/svg/resource/svg/fi-rr-cloud-check.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
  </widget>

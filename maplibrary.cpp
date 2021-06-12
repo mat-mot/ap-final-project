@@ -1,14 +1,12 @@
 #include "maplibrary.h"
 #include "ui_maplibrary.h"
-#include"manage.h"
 maplibrary::maplibrary(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::maplibrary)
 {
     ui->setupUi(this);
     this->m_data.load() ;
-    Manage  * m = new  Manage () ;
-    m->exec() ;
+    //ui->Manage->setEnabled(false) ;
     for (int i=0 ; i<20 ; i++)
     {
         ui->listofthings->addItem("book" + QString::number(i+1) ) ;
@@ -23,7 +21,6 @@ maplibrary::~maplibrary()
 lib_file maplibrary::data() const
 {
     return m_data;
-
 }
 
 void maplibrary::setData(const lib_file &data)
@@ -46,12 +43,44 @@ void maplibrary::closeEvent(QCloseEvent *event)
 }
 
 
-void maplibrary::on_listofthings_itemClicked(QListWidgetItem *item)
+void maplibrary::on_actionlogin_triggered()
 {
-    QString a =  item->text() ;
+    register_login *n = new register_login () ;
+    n->setChid_f(this->data()) ;
+    n->exec() ;
+    this->setData(n->getChid_f()) ;
 }
 
-void maplibrary::on_listofthings_itemDoubleClicked(QListWidgetItem *item)
+
+void maplibrary::on_actionSave_triggered()
 {
+    m_data.save() ;
+    QMessageBox::information (this , "Save" , "your data seccesfully saved"  ) ;
+}
+
+void maplibrary::on_actionexit_triggered()
+{
+    this->close() ;
+}
+
+void maplibrary::on_actionExit_triggered()
+{
+    this->close() ;
+}
+
+void maplibrary::on_actionContact_Us_triggered()
+{
+    QMessageBox::information(this , "Contact Us" , "Phone number : 09015743537\nAddress : University of Isfahan , Ansar building" ) ;
+}
+
+void maplibrary::on_actionSave_Data_triggered()
+{
+    this->on_actionSave_triggered() ;
+}
+
+void maplibrary::on_actionmanage_triggered()
+{
+    Manage  * m = new  Manage () ;
+    m->exec() ;
 
 }

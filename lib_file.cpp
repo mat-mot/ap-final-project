@@ -1,7 +1,7 @@
 #include "lib_file.h"
 
 
-QList<lib_user> lib_file::user() const
+QList<lib_user> & lib_file::user()
 {
     return m_user;
 }
@@ -11,7 +11,7 @@ void lib_file::setUser(const QList<lib_user> &user)
     m_user = user;
 }
 
-QList<lib_book> lib_file::book() const
+QList<lib_book> & lib_file::book()
 {
     return m_book;
 }
@@ -21,7 +21,7 @@ void lib_file::setBook(const QList<lib_book> &book)
     m_book = book;
 }
 
-QList<lib_group> lib_file::group() const
+QList<lib_group> & lib_file::group()
 {
     return m_group;
 }

@@ -19,11 +19,11 @@ private:
     QList<lib_group> m_group ;
 public:
     lib_file();
-    QList<lib_user> user() const;
+    QList<lib_user> & user() ;
     void setUser(const QList<lib_user> &user);
-    QList<lib_book> book() const;
+    QList<lib_book> & book() ;
     void setBook(const QList<lib_book> &book);
-    QList<lib_group> group() const;
+    QList<lib_group> & group() ;
     void setGroup(const QList<lib_group> &group);
     void load () ;
     void save () ;

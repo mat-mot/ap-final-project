@@ -15,7 +15,8 @@ SOURCES += \
     lib_user.cpp \
     main.cpp \
     manage.cpp \
-    maplibrary.cpp
+    maplibrary.cpp \
+    register_login.cpp
 
 HEADERS += \
     lib_book.h \
@@ -23,11 +24,13 @@ HEADERS += \
     lib_group.h \
     lib_user.h \
     manage.h \
-    maplibrary.h
+    maplibrary.h \
+    register_login.h
 
 FORMS += \
     manage.ui \
-    maplibrary.ui
+    maplibrary.ui \
+    register_login.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
