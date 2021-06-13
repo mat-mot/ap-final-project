@@ -20,6 +20,13 @@ void lib_group::setGrpname(const QString &value)
     grpname = value;
 }
 
+bool lib_group::contains(QString &n)
+{
+    if (grpname.contains(n))
+        return true;
+    return false;
+}
+
 lib_group::lib_group()
 {
 

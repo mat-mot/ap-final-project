@@ -10,9 +10,20 @@ void lib_user::setHashedpassword(unsigned long long value)
     hashedpassword = value;
 }
 
+bool lib_user::contains(QString &n)
+{
+    if (fullname.contains(n))
+        return true;
+    else if (username.contains(n))
+        return true;
+    else if (emailaddres.contains(n))
+        return true;
+    return false;
+}
+
 lib_user::lib_user()
 {
-    
+    this->hashedpassword = 0 ;
 }
 
 QString lib_user::getUsername() const

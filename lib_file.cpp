@@ -1,5 +1,5 @@
 #include "lib_file.h"
-
+#define endl "\n"
 
 QList<lib_user> & lib_file::user()
 {
@@ -52,7 +52,7 @@ void lib_file::load()
             tmp.setFullname(accstr.readLine()) ;
             tmp.setPcode(accstr.readLine()) ;
             if (accstr.readLine() == "[")
-           {
+            {
                 QList<QString> tp ;
                 for (;accstr.readLine() != "]";)
                 {
@@ -84,7 +84,7 @@ void lib_file::load()
             tmp.setSubject(boostr.readLine()) ;
             tmp.setNumofbook(boostr.readLine().toInt()) ;
             if (boostr.readLine() == "[")
-           {
+            {
                 QList<QString> tp ;
                 for (;boostr.readLine() != "]";)
                 {
@@ -98,33 +98,33 @@ void lib_file::load()
     }
     boo.close() ;
     QFile grp("group.info") ;
-        if (!grp.open(QIODevice::ReadOnly)&& grp.exists())
+    if (!grp.open(QIODevice::ReadOnly)&& grp.exists())
+    {
+        qInfo() << grp.errorString() << endl  ;
+        return;
+    }
+    QTextStream grpstr (&grp) ;
+    grpstr.seek(0) ;
+    while (!grpstr.atEnd())
+    {
+        if (grpstr.readLine() == "{")
         {
-            qInfo() << grp.errorString() << endl  ;
-            return;
-        }
-        QTextStream grpstr (&grp) ;
-        grpstr.seek(0) ;
-        while (!grpstr.atEnd())
-        {
-            if (grpstr.readLine() == "{")
+            lib_group tmp ;
+            tmp.setGrpname(grpstr.readLine()) ;
+            if (grpstr.readLine() == "[")
             {
-                lib_group tmp ;
-                tmp.setGrpname(grpstr.readLine()) ;
-                if (grpstr.readLine() == "[")
-               {
-                    QList<QString> tp ;
-                    for (;grpstr.readLine() != "]";)
-                    {
-                        tp.push_front(grpstr.readLine()) ;
-                    }
-                    tmp.setGrpmember(tp) ;
+                QList<QString> tp ;
+                for (;grpstr.readLine() != "]";)
+                {
+                    tp.push_front(grpstr.readLine()) ;
                 }
-                grpstr.readLine() ;
-                this->m_group.push_front(tmp) ;
+                tmp.setGrpmember(tp) ;
             }
+            grpstr.readLine() ;
+            this->m_group.push_front(tmp) ;
         }
-        grp.close() ;
+    }
+    grp.close() ;
 }
 
 void lib_file::save()
@@ -137,7 +137,7 @@ void lib_file::save()
     }
     QTextStream streem (&acc) ;
     streem.seek(0) ;
-    for (auto ito = m_user.begin() ; ito != m_user.end() && m_user.size() > 0;ito ++)
+    for (auto ito = m_user.begin() ; ito != m_user.end() && m_user.size() > 0;++ito )
     {
         streem << "{\n" ;
         streem << ito->getUsername() << "\n" ;
@@ -146,9 +146,10 @@ void lib_file::save()
         streem << ito->getFullname() << "\n" ;
         streem << ito->getPcode() << "\n" ;
         streem <<  "[\n" ;
-        for (auto iit = ito->getBorrowbook().begin() ; iit != ito->getBorrowbook().end() && ito->getBorrowbook().size() >0 ;iit ++)
+        //for (auto iit = ito->getBorrowbook().begin() ; iit != ito->getBorrowbook().end() && ito->getBorrowbook().size() >0 ;++iit )
+        for (int i=0 ; i < ito->getBorrowbook().size() ; i++)
         {
-            streem << "\n" << * iit << "\n" ;
+            streem << "\n" << ito->getBorrowbook().at(i) << "\n" ;
         }
         streem <<  "]\n" ;
         streem <<  "}\n" ;
@@ -162,7 +163,7 @@ void lib_file::save()
     }
     QTextStream boostr (&boo) ;
     boostr.seek(0) ;
-    for (auto ito = m_book.begin() ; ito != m_book.end() && m_book.size() > 0 ; ito ++   )
+    for (auto ito = m_book.begin() ; ito != m_book.end() && m_book.size() > 0 ;++ ito    )
     {
         boostr << "{\n" ;
         boostr << ito->getName() << "\n" ;
@@ -171,9 +172,10 @@ void lib_file::save()
         boostr << ito->getSubject() << "\n" ;
         boostr << ito->getNumofbook() << "\n" ;
         boostr <<  "[\n" ;
-        for (auto iit = ito->getBorrowlist().begin() ; iit != ito->getBorrowlist().end() && ito->getBorrowlist().size()>0 ;iit ++)
+        //for (auto iit = ito->getBorrowlist().begin() ; iit != ito->getBorrowlist().end() && ito->getBorrowlist().size()>0 ;++iit )
+        for (int i=0 ; i < ito->getBorrowlist().size() ; i++)
         {
-            boostr << "\n" << * iit << "\n" ;
+            boostr << "\n" << ito->getBorrowlist().at(i) << "\n" ;
         }
         boostr <<  "]\n" ;
         boostr <<  "}\n" ;
@@ -187,19 +189,53 @@ void lib_file::save()
     }
     QTextStream grpstr (&grp) ;
     grp.seek(0) ;
-    for (auto ito = m_group.begin() ; ito != m_group.end()&& m_group.size()>0 ; ito ++ )
+    for (auto ito = m_group.begin() ; ito != m_group.end()&& m_group.size()>0 ; ++ito  )
     {
         grpstr << "{\n" ;
         grpstr << ito->getGrpname() << "\n" ;
         grpstr << "[\n" ;
-        for (auto iit = ito->getGrpmember().begin() ; iit != ito->getGrpmember().end() && ito->getGrpmember().size()>0;iit++)
+        //for (auto iit = ito->getGrpmember().begin() ; iit != ito->getGrpmember().end() && ito->getGrpmember().size()>0;++iit)
+        for (int i=0 ; i<ito->getGrpmember().size() ; i++)
         {
-            boostr << "\n" << * iit << "\n" ;
+            boostr << "\n" <<ito->getGrpmember().at(i) << "\n" ;
         }
         grpstr << "]\n" ;
         grpstr << "}\n" ;
     }
     grp.close() ;
+}
+
+QList<lib_book> lib_file::bcontains(QString n)
+{
+    QList<lib_book> tmp ;
+    for (auto ito = m_book.begin() ; ito != m_book.end() ; ito ++)
+    {
+        if (ito->contains(n))
+            tmp.push_front(*ito) ;
+    }
+    return tmp;
+}
+
+QList<lib_group> lib_file::gcontains(QString n)
+{
+    QList<lib_group> tmp ;
+    for (auto ito = m_group.begin() ; ito != m_group.end() ; ito ++)
+    {
+        if (ito->contains(n))
+            tmp.push_front(*ito) ;
+    }
+    return tmp;
+}
+
+lib_user lib_file::ucontains(QString n)
+{
+    for (auto ito = m_user.begin() ; ito != m_user.end() ; ito ++)
+    {
+        if (ito->contains(n))
+            return *ito;
+    }
+    lib_user tmp ;
+    return tmp;
 }
 
 lib_file::lib_file()
@@ -208,3 +244,4 @@ lib_file::lib_file()
     this->sizeofgroup = 0 ;
     this->sizeofuser = 0 ;
 }
+

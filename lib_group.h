@@ -16,6 +16,7 @@ public:
     void setGrpmember(const QList<QString> &value);
     QString getGrpname() const;
     void setGrpname(const QString &value);
+    bool contains (QString & n) ;
 };
 
 #endif // GROUP_H

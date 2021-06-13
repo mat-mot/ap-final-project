@@ -31,6 +31,9 @@ public:
     lib_file getChid_f() const;
     void setChid_f(const lib_file &value);
 
+    const lib_user &getCuretnuser() const;
+    void setCuretnuser(const lib_user &newCuretnuser);
+
 private slots:
 
     void on_registerboxbtnregister_clicked();
@@ -46,9 +49,21 @@ private slots:
 
     void on_loginbtnpassechomod_clicked(bool checked);
 
+
+    void on_infobtnvarify_clicked();
+
+    void on_loginbtnlogin_clicked();
+
+    void on_registerboxledemail_textChanged();
+
+    void on_infoledemail_textChanged();
+
+    void on_regisretboxbtnpcodeinfo_clicked();
+
 private:
     Ui::register_login *ui;
     lib_file chid_f ;
+    lib_user curetnuser ;
 };
 
 #endif // REGISTER_LOGIN_H

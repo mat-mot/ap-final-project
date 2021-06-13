@@ -60,6 +60,25 @@ void lib_book::setBorrowlist(const QList<QString> &value)
     borrowlist = value;
 }
 
+bool lib_book::contains(QString &n)
+{
+    if (name.contains(n))
+        return true;
+    else if (author.contains(n))
+        return true;
+    else if (publishers.contains(n))
+        return true;
+
+    else if (subject.contains(n))
+        return true;
+
+    else if (author.contains(n))
+        return true;
+
+    return false;
+}
+
+
 lib_book::lib_book()
 {
     this->numofbook = 0 ;
