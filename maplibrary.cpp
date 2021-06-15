@@ -7,6 +7,8 @@ maplibrary::maplibrary(QWidget *parent)
     ui->setupUi(this);
     this->m_data.load() ;
     ui->Manage->setEnabled(false) ;
+    ui->actionmanage->setEnabled(false) ;
+    ui->btnreserve->setEnabled(false) ;
     for (int i=0 ; i<20 ; i++)
     {
         ui->listofthings->addItem("book" + QString::number(i+1) ) ;
@@ -51,8 +53,16 @@ void maplibrary::on_actionlogin_triggered()
     this->setData(n->getChid_f()) ;
     this->current_user = n ->getCuretnuser() ;
     delete n ;
+    if (!current_user.getUsername().isEmpty())
+    {
+        ui->btnreserve->setEnabled(true) ;
+
+    }
     if ( current_user.getPcode().contains("AA") )
+    {
         ui->Manage->setEnabled(true) ;
+        ui->actionmanage->setEnabled(true) ;
+    }
 }
 
 

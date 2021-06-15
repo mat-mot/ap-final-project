@@ -238,6 +238,9 @@
             <iconset resource="image.qrc">
              <normaloff>:/new/svg/resource/svg/fi-rr-checkbox.svg</normaloff>:/new/svg/resource/svg/fi-rr-checkbox.svg</iconset>
            </property>
+           <property name="default">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item>

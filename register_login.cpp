@@ -157,6 +157,7 @@ void register_login::on_loginbtnlogin_clicked()
         return;
     }
     QMessageBox::information(this , "login" , "seccesfull !") ;
+    curetnuser = tp ;
     this->close() ;
 }
 

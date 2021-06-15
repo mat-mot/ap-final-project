@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>686</width>
-    <height>398</height>
+    <width>1043</width>
+    <height>645</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -75,6 +75,13 @@
       <widget class="QPlainTextEdit" name="ptedetails"/>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="btnreserve">
+      <property name="text">
+       <string>reserve</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -82,7 +89,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>686</width>
+     <width>1043</width>
      <height>25</height>
     </rect>
    </property>
@@ -90,36 +97,9 @@
     <property name="title">
      <string>Manage</string>
     </property>
-    <widget class="QMenu" name="menuBooks">
-     <property name="title">
-      <string>Books</string>
-     </property>
-     <addaction name="actionnewbook"/>
-     <addaction name="actioneditbook"/>
-     <addaction name="separator"/>
-     <addaction name="actiondeletebook"/>
-    </widget>
-    <widget class="QMenu" name="menuGroups">
-     <property name="title">
-      <string>Groups</string>
-     </property>
-     <addaction name="actionnewgrp"/>
-     <addaction name="actionEditegrp"/>
-     <addaction name="separator"/>
-     <addaction name="actionDeletegrp"/>
-    </widget>
-    <widget class="QMenu" name="menuUsers">
-     <property name="title">
-      <string>Users</string>
-     </property>
-     <addaction name="actionNewuser"/>
-     <addaction name="actionEditeuser"/>
-     <addaction name="separator"/>
-     <addaction name="actionDeleteuser"/>
-    </widget>
-    <addaction name="menuBooks"/>
-    <addaction name="menuGroups"/>
-    <addaction name="menuUsers"/>
+    <addaction name="actionBook"/>
+    <addaction name="actionGroup"/>
+    <addaction name="actionUser"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -196,51 +176,6 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+M</string>
-   </property>
-  </action>
-  <action name="actionnewbook">
-   <property name="text">
-    <string>New</string>
-   </property>
-  </action>
-  <action name="actioneditbook">
-   <property name="text">
-    <string>Edit</string>
-   </property>
-  </action>
-  <action name="actiondeletebook">
-   <property name="text">
-    <string>Delete</string>
-   </property>
-  </action>
-  <action name="actionnewgrp">
-   <property name="text">
-    <string>New</string>
-   </property>
-  </action>
-  <action name="actionEditegrp">
-   <property name="text">
-    <string>Edite</string>
-   </property>
-  </action>
-  <action name="actionDeletegrp">
-   <property name="text">
-    <string>Delete</string>
-   </property>
-  </action>
-  <action name="actionNewuser">
-   <property name="text">
-    <string>New</string>
-   </property>
-  </action>
-  <action name="actionEditeuser">
-   <property name="text">
-    <string>Edite</string>
-   </property>
-  </action>
-  <action name="actionDeleteuser">
-   <property name="text">
-    <string>Delete</string>
    </property>
   </action>
   <action name="actionSave_Data">
@@ -322,6 +257,33 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionBook">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/png/resource/png/books-stack-of-three.png</normaloff>:/new/png/resource/png/books-stack-of-three.png</iconset>
+   </property>
+   <property name="text">
+    <string>Book</string>
+   </property>
+  </action>
+  <action name="actionGroup">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-apps.svg</normaloff>:/new/svg/resource/svg/fi-rr-apps.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Group</string>
+   </property>
+  </action>
+  <action name="actionUser">
+   <property name="icon">
+    <iconset resource="image.qrc">
+     <normaloff>:/new/svg/resource/svg/fi-rr-users.svg</normaloff>:/new/svg/resource/svg/fi-rr-users.svg</iconset>
+   </property>
+   <property name="text">
+    <string>User</string>
    </property>
   </action>
  </widget>

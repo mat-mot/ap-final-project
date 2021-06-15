@@ -15,7 +15,6 @@
 #include <QMessageBox>
 #include <QListWidgetItem>
 #include <QSharedPointer>
-
 namespace Ui {
 class register_login;
 }
@@ -59,6 +58,7 @@ private slots:
     void on_infoledemail_textChanged();
 
     void on_regisretboxbtnpcodeinfo_clicked();
+
 
 private:
     Ui::register_login *ui;
