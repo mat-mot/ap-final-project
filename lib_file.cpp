@@ -227,6 +227,38 @@ QList<lib_group> lib_file::gcontains(QString n)
     return tmp;
 }
 
+QList<lib_user> lib_file::ulistcontains(QString n)
+{
+    QList<lib_user> tmp ;
+    for (auto ito = m_user.begin() ; ito != m_user.end() ; ito ++)
+    {
+        if (ito->contains(n))
+            tmp.push_front(*ito) ;
+    }
+    return tmp;
+}
+
+QStringList lib_file::items(QString a)
+{
+    QStringList tmp ;
+    if (a == "Books")
+    {
+        for (int i=0 ; i < m_book.size() ; i++)
+            tmp.push_front(m_book.at(i).getName()) ;
+    }
+    if (a == "Groups")
+    {
+        for (int i=0 ; i < m_group.size() ; i++)
+            tmp.push_front(m_group.at(i).getGrpname()) ;
+    }
+    if (a == "Users")
+    {
+        for (int i=0 ; i < m_user.size() ; i++)
+            tmp.push_front(m_user.at(i).getUsername()) ;
+    }
+    return tmp;
+}
+
 lib_user lib_file::ucontains(QString n)
 {
     for (auto ito = m_user.begin() ; ito != m_user.end() ; ito ++)

@@ -45,5 +45,8 @@ private slots:
     void on_actionContact_Us_triggered();
     void on_actionSave_Data_triggered();
     void on_actionmanage_triggered();
+    void on_actionLogin_triggered();
+    void on_actionRegister_triggered();
+    void on_actionLogout_triggered();
 };
 #endif // MAPLIBRARY_H

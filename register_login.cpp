@@ -153,7 +153,9 @@ void register_login::on_loginbtnlogin_clicked()
     tp = chid_f.ucontains(ui->loginledusername->text()) ;
     if (tp.getUsername() != tmp.getUsername() || tp.getHashedpassword() != tmp.getHashedpassword())
     {
-        ui->infolbldetail->setText("your user or pass dose not correct !!") ;
+        //ui->infolbldetail->setText("your user or pass dose not correct !!") ;
+        QMessageBox::information(this , "login" , "user or password was wrong please try again :-) ") ;
+        ui->loginledpass->clear() ;
         return;
     }
     QMessageBox::information(this , "login" , "seccesfull !") ;

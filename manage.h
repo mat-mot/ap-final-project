@@ -29,7 +29,12 @@ public:
     ~Manage();
 
     lib_file getChild_f() const;
-    void setChild_f(const lib_file &value);
+    void setChild_f(lib_file &value);
+
+private slots:
+    void on_comboBox_currentIndexChanged(const QString &arg1);
+
+    void on_lineEdit_textChanged(const QString &arg1);
 
 private:
     Ui::Manage *ui;

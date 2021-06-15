@@ -21,6 +21,16 @@ bool lib_user::contains(QString &n)
     return false;
 }
 
+lib_user::~lib_user()
+{
+    this->emailaddres.clear();
+    this->username.clear() ;
+    this->fullname.clear() ;
+    this->hashedpassword = 0 ;
+    this->pcode.clear() ;
+    this->borrowbook.clear() ;
+}
+
 lib_user::lib_user()
 {
     this->hashedpassword = 0 ;

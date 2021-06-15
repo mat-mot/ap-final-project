@@ -28,6 +28,7 @@ public:
     unsigned long long getHashedpassword() const;
     void setHashedpassword(unsigned long long value);
     bool contains (QString & n ) ;
+    ~lib_user () ;
 };
 
 #endif // USER_H
