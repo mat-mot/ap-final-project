@@ -11,9 +11,6 @@
 class lib_file
 {
 private:
-    int sizeofbook ;
-    int sizeofuser ;
-    int sizeofgroup ;
     QList<lib_user> m_user ;
     QList<lib_book> m_book ;
     QList<lib_group> m_group ;

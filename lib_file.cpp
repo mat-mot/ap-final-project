@@ -272,8 +272,6 @@ lib_user lib_file::ucontains(QString n)
 
 lib_file::lib_file()
 {
-    this->sizeofbook = 0 ;
-    this->sizeofgroup = 0 ;
-    this->sizeofuser = 0 ;
+
 }
 

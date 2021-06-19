@@ -36,6 +36,7 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
+
 private:
     Ui::Manage *ui;
     lib_file child_f ;

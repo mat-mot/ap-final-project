@@ -17,6 +17,19 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_9">
      <item>
+      <spacer name="horizontalSpacer_14">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <widget class="QSplitter" name="splitter_3">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -70,7 +83,7 @@
          </widget>
         </widget>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
           <number>1</number>
@@ -642,6 +655,19 @@
         </item>
        </layout>
       </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_15">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>

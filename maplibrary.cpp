@@ -102,6 +102,7 @@ void maplibrary::on_actionmanage_triggered()
 {
     Manage  * m = new  Manage () ;
     m->setChild_f( m_data ) ;
+
     m->exec() ;
 
 }
@@ -117,7 +118,6 @@ void maplibrary::on_actionRegister_triggered()
 {
     this->on_actionLogin_triggered() ;
 }
-
 void maplibrary::on_actionLogout_triggered()
 {
     ui->Manage->setEnabled(false) ;
