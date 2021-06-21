@@ -17,6 +17,9 @@ Manage::Manage(QWidget *parent) :
     ui->groupBoxbook->setEnabled(false) ;
     ui->groupBoxgroup->setEnabled(false) ;
     ui->groupBoxuser->setEnabled(false) ;
+    ui->ledbookborrow->hide();
+    ui->leduserborrow->hide() ;
+    ui->ledgroupmember->hide() ;
 }
 
 Manage::~Manage()
@@ -135,5 +138,47 @@ void Manage::on_lineEdit_textChanged(const QString &arg1)
     }
     else if (type == "Non")
         ui->listWidget->clear() ;
+}
+
+
+void Manage::on_comboBox_currentTextChanged(const QString &arg1)
+{
+    this->on_comboBox_currentIndexChanged(arg1) ;
+}
+
+
+void Manage::on_btnadd_clicked()
+{
+    QString type = ui->comboBox->currentText() ;
+    if ( type == "Books")
+    {
+        ui->comboBox->setEnabled(false) ;
+        ui->groupBoxbook->setEnabled(true) ;
+        ui->listWidget->setEnabled(false) ;
+    }
+    else if (type == "Groups")
+    {
+        ui->groupBoxgroup->setEnabled(true) ;
+        ui->listWidget->setEnabled(false) ;
+        ui->comboBox->setEnabled(false) ;
+    }
+    else if (type == "Users")
+    {
+        ui->groupBoxuser->setEnabled(true) ;
+        ui->comboBox->setEnabled(false) ;
+        ui->listWidget->setEnabled(false) ;
+    }
+    else if (type == "All" || type == "Non")
+    {
+        QMessageBox :: information(this , "action" , "please select type of object first from combobox !!") ;
+    }
+}
+
+
+
+void Manage::on_btnaddborrowuser_clicked()
+{
+    ui->ledbookborrow->show() ;
+
 }
 

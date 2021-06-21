@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1078</width>
-    <height>420</height>
+    <width>1117</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -125,6 +125,9 @@
            <property name="text">
             <string>Add</string>
            </property>
+           <property name="default">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item>
@@ -170,19 +173,29 @@
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>22</width>
+              <width>40</width>
               <height>20</height>
              </size>
             </property>
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="ledname"/>
+           <widget class="QLineEdit" name="ledname">
+            <property name="minimumSize">
+             <size>
+              <width>164</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>250</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -200,19 +213,29 @@
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>16</width>
+              <width>40</width>
               <height>20</height>
              </size>
             </property>
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="ledauthor"/>
+           <widget class="QLineEdit" name="ledauthor">
+            <property name="minimumSize">
+             <size>
+              <width>164</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>250</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -235,14 +258,27 @@
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>1</width>
+              <width>20</width>
               <height>20</height>
              </size>
             </property>
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="ledpublisher"/>
+           <widget class="QLineEdit" name="ledpublisher">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>164</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -261,18 +297,31 @@
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>13</width>
+              <width>20</width>
               <height>20</height>
              </size>
             </property>
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="ledsubject"/>
+           <widget class="QLineEdit" name="ledsubject">
+            <property name="minimumSize">
+             <size>
+              <width>164</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>250</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -307,6 +356,9 @@
            <widget class="QListWidget" name="listWborrowlist"/>
           </item>
           <item>
+           <widget class="QLineEdit" name="ledbookborrow"/>
+          </item>
+          <item>
            <layout class="QHBoxLayout" name="horizontalLayout_7">
             <item>
              <widget class="QPushButton" name="btneditborrow">
@@ -319,6 +371,9 @@
              <widget class="QPushButton" name="btnaddborrow">
               <property name="text">
                <string>Add</string>
+              </property>
+              <property name="default">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -345,14 +400,11 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_17">
           <item>
-           <widget class="QLabel" name="lblnamegrp">
-            <property name="text">
+           <widget class="QLineEdit" name="ledname_3">
+            <property name="placeholderText">
              <string>Name</string>
             </property>
            </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="ledname_3"/>
           </item>
          </layout>
         </item>
@@ -361,12 +413,15 @@
           <item>
            <widget class="QLabel" name="lblgrpmember">
             <property name="text">
-             <string>Group Member</string>
+             <string>Group Member :</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QListWidget" name="listWgrpmember"/>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="ledgroupmember"/>
           </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_18">
@@ -381,6 +436,9 @@
              <widget class="QPushButton" name="btnaddgrpmem">
               <property name="text">
                <string>Add</string>
+              </property>
+              <property name="default">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -419,7 +477,7 @@
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -430,7 +488,14 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="ledusername"/>
+           <widget class="QLineEdit" name="ledusername">
+            <property name="minimumSize">
+             <size>
+              <width>129</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -449,7 +514,7 @@
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -460,7 +525,14 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="ledpassword"/>
+           <widget class="QLineEdit" name="ledpassword">
+            <property name="minimumSize">
+             <size>
+              <width>129</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -479,7 +551,7 @@
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -490,7 +562,14 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="lednewpassword"/>
+           <widget class="QLineEdit" name="lednewpassword">
+            <property name="minimumSize">
+             <size>
+              <width>129</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -504,23 +583,26 @@
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_9">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+           <widget class="QLineEdit" name="lednewpasswordagain">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
+            <property name="minimumSize">
              <size>
-              <width>1</width>
-              <height>20</height>
+              <width>129</width>
+              <height>0</height>
              </size>
             </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lednewpasswordagain"/>
+            <property name="maximumSize">
+             <size>
+              <width>129</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -539,7 +621,7 @@
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -550,7 +632,14 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="ledfullname"/>
+           <widget class="QLineEdit" name="ledfullname">
+            <property name="minimumSize">
+             <size>
+              <width>129</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -569,7 +658,7 @@
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -580,7 +669,14 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="ledemailaddres"/>
+           <widget class="QLineEdit" name="ledemailaddres">
+            <property name="minimumSize">
+             <size>
+              <width>129</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -599,7 +695,7 @@
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -610,7 +706,14 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="ledpcode"/>
+           <widget class="QLineEdit" name="ledpcode">
+            <property name="minimumSize">
+             <size>
+              <width>129</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -627,23 +730,29 @@
            <widget class="QListWidget" name="listWborrowlist_4"/>
           </item>
           <item>
+           <widget class="QLineEdit" name="leduserborrow"/>
+          </item>
+          <item>
            <layout class="QHBoxLayout" name="horizontalLayout_24">
             <item>
-             <widget class="QPushButton" name="btneditborrow_4">
+             <widget class="QPushButton" name="btneditborrowuser">
               <property name="text">
                <string>Edit</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btnaddborrow_4">
+             <widget class="QPushButton" name="btnaddborrowuser">
               <property name="text">
                <string>Add</string>
+              </property>
+              <property name="default">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btndeleteborrow_4">
+             <widget class="QPushButton" name="btndeleteborrowuser">
               <property name="text">
                <string>delete</string>
               </property>
@@ -687,16 +796,38 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="btndiscard">
        <property name="text">
         <string>Discard</string>
+       </property>
+       <property name="icon">
+        <iconset resource="image.qrc">
+         <normaloff>:/new/svg/resource/svg/fi-rr-file-delete.svg</normaloff>:/new/svg/resource/svg/fi-rr-file-delete.svg</iconset>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btnsave">
        <property name="text">
         <string>Save</string>
+       </property>
+       <property name="icon">
+        <iconset resource="image.qrc">
+         <normaloff>:/new/svg/resource/svg/fi-rr-file-check.svg</normaloff>:/new/svg/resource/svg/fi-rr-file-check.svg</iconset>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnexit">
+       <property name="text">
+        <string>Exit</string>
+       </property>
+       <property name="icon">
+        <iconset resource="image.qrc">
+         <normaloff>:/new/svg/resource/svg/fi-rr-cross-circle.svg</normaloff>:/new/svg/resource/svg/fi-rr-cross-circle.svg</iconset>
        </property>
       </widget>
      </item>
@@ -704,6 +835,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="image.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -37,6 +37,12 @@ private slots:
     void on_lineEdit_textChanged(const QString &arg1);
 
 
+    void on_comboBox_currentTextChanged(const QString &arg1);
+
+    void on_btnadd_clicked();
+
+    void on_btnaddborrowuser_clicked();
+
 private:
     Ui::Manage *ui;
     lib_file child_f ;

@@ -75,7 +75,11 @@
         </size>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="ptedetails"/>
+      <widget class="QPlainTextEdit" name="ptedetails">
+       <property name="placeholderText">
+        <string>explanation</string>
+       </property>
+      </widget>
      </widget>
     </item>
     <item>
@@ -93,7 +97,7 @@
      <x>0</x>
      <y>0</y>
      <width>1043</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="Manage">
