@@ -22,12 +22,14 @@ public:
     void setBook(const QList<lib_book> &book);
     QList<lib_group> & group() ;
     void setGroup(const QList<lib_group> &group);
-    void load () ;
-    void save () ;
-    lib_user ucontains (QString n ) ;
-    QList<lib_book> bcontains (QString n) ;
-    QList<lib_group> gcontains (QString n) ;
-    QList<lib_user> ulistcontains (QString n) ;
-    QStringList items ( QString a ) ;
+    void load () ;//load data for program in the constructor
+    void save () ;//save data when program close
+    lib_user ucontains (QString n ) ;//user contains find a member that have string like n in his fild
+    lib_book bcontains (QString n ) ;//book contains find a member that have string like n in his fild
+    lib_group gcontains (QString n ) ;//group contains find a member that have string like n in his fild
+    QList<lib_book> blistcontains (QString n) ;//book list contains find a list of member that have string like n
+    QList<lib_group> glistcontains (QString n) ;//groups list contain find a list of member that have string like n
+    QList<lib_user> ulistcontains (QString n) ;//user list contains find a list of user that have string like n
+    QStringList items ( QString a ) ;//items cearte a string list from a all list member that exit in file and "a" is type of data (Users , Books , Groups)
 };
 #endif // FILE_H

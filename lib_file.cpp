@@ -205,7 +205,7 @@ void lib_file::save()
     grp.close() ;
 }
 
-QList<lib_book> lib_file::bcontains(QString n)
+QList<lib_book> lib_file::blistcontains(QString n)
 {
     QList<lib_book> tmp ;
     for (auto ito = m_book.begin() ; ito != m_book.end() ; ito ++)
@@ -216,7 +216,7 @@ QList<lib_book> lib_file::bcontains(QString n)
     return tmp;
 }
 
-QList<lib_group> lib_file::gcontains(QString n)
+QList<lib_group> lib_file::glistcontains(QString n)
 {
     QList<lib_group> tmp ;
     for (auto ito = m_group.begin() ; ito != m_group.end() ; ito ++)
@@ -267,6 +267,28 @@ lib_user lib_file::ucontains(QString n)
             return *ito;
     }
     lib_user tmp ;
+    return tmp;
+}
+
+lib_book lib_file::bcontains(QString n)
+{
+    for (auto ito = m_book.begin() ; ito != m_book.end() ; ito ++)
+    {
+        if (ito->contains(n))
+            return *ito;
+    }
+    lib_book tmp ;
+    return tmp;
+}
+
+lib_group lib_file::gcontains(QString n)
+{
+    for (auto ito = m_group.begin() ; ito != m_group.end() ; ito ++)
+    {
+        if (ito->contains(n))
+            return *ito;
+    }
+    lib_group tmp ;
     return tmp;
 }
 

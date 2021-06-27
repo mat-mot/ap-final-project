@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1117</width>
-    <height>480</height>
+    <width>1145</width>
+    <height>646</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_4">
+  <layout class="QVBoxLayout" name="verticalLayout_8">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_9">
      <item>
@@ -30,121 +30,130 @@
       </spacer>
      </item>
      <item>
-      <widget class="QSplitter" name="splitter_3">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+      <widget class="QGroupBox" name="grpboxmanageinfo">
+       <property name="title">
+        <string>acsess</string>
        </property>
-       <widget class="QSplitter" name="splitter_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <widget class="QLineEdit" name="lineEdit">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="text">
-          <string notr="true"/>
-         </property>
-         <property name="placeholderText">
-          <string>search box</string>
-         </property>
-         <property name="clearButtonEnabled">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <widget class="QSplitter" name="splitter">
-         <property name="maximumSize">
-          <size>
-           <width>200</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <widget class="QComboBox" name="comboBox">
-          <property name="maximumSize">
-           <size>
-            <width>200</width>
-            <height>25</height>
-           </size>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QSplitter" name="splitter_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
-         </widget>
-         <widget class="QListWidget" name="listWidget">
-          <property name="maximumSize">
-           <size>
-            <width>200</width>
-            <height>16777215</height>
-           </size>
-          </property>
-         </widget>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="layoutWidget">
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <property name="spacing">
-          <number>1</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="btndelete">
-           <property name="maximumSize">
-            <size>
-             <width>65</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Delete</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnedit">
-           <property name="maximumSize">
-            <size>
-             <width>65</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Edite</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnadd">
-           <property name="maximumSize">
-            <size>
-             <width>65</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Add</string>
-           </property>
-           <property name="default">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer">
+          <widget class="QSplitter" name="splitter_2">
            <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+            <enum>Qt::Vertical</enum>
            </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>80</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </widget>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string notr="true"/>
+            </property>
+            <property name="placeholderText">
+             <string>search box</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QSplitter" name="splitter">
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <widget class="QComboBox" name="comboBox">
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>25</height>
+              </size>
+             </property>
+            </widget>
+            <widget class="QListWidget" name="listWidget">
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>16777215</height>
+              </size>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="layoutWidget">
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>1</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="btndelete">
+              <property name="maximumSize">
+               <size>
+                <width>65</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Delete</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnedit">
+              <property name="maximumSize">
+               <size>
+                <width>65</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Edite</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnadd">
+              <property name="maximumSize">
+               <size>
+                <width>65</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Add</string>
+              </property>
+              <property name="default">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>80</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </item>
      <item>
@@ -194,6 +203,9 @@
               <width>250</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="placeholderText">
+             <string>name of book#code</string>
             </property>
            </widget>
           </item>
@@ -353,20 +365,40 @@
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWborrowlist"/>
+           <widget class="QListWidget" name="listWborrowlistbook"/>
           </item>
           <item>
-           <widget class="QLineEdit" name="ledbookborrow"/>
+           <widget class="QGroupBox" name="gboxbookaddborrow">
+            <property name="title">
+             <string>Add</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <item>
+              <widget class="QLineEdit" name="ledbookborrow">
+               <property name="placeholderText">
+                <string>enter username</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btngboxbookaddok">
+               <property name="text">
+                <string>OK</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btngboxbookadddiscard">
+               <property name="text">
+                <string>Discard</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_7">
-            <item>
-             <widget class="QPushButton" name="btneditborrow">
-              <property name="text">
-               <string>Edit</string>
-              </property>
-             </widget>
-            </item>
             <item>
              <widget class="QPushButton" name="btnaddborrow">
               <property name="text">
@@ -400,7 +432,7 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_17">
           <item>
-           <widget class="QLineEdit" name="ledname_3">
+           <widget class="QLineEdit" name="lednameofgroup">
             <property name="placeholderText">
              <string>Name</string>
             </property>
@@ -421,17 +453,37 @@
            <widget class="QListWidget" name="listWgrpmember"/>
           </item>
           <item>
-           <widget class="QLineEdit" name="ledgroupmember"/>
+           <widget class="QGroupBox" name="gboxgroupaddmember">
+            <property name="title">
+             <string>Add</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_10">
+             <item>
+              <widget class="QLineEdit" name="ledgroupmember">
+               <property name="placeholderText">
+                <string>enter name of book</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btngboxgroupaddok">
+               <property name="text">
+                <string>Ok</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btngboxgroupadddiscard">
+               <property name="text">
+                <string>Discard</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_18">
-            <item>
-             <widget class="QPushButton" name="btneditgrpmem">
-              <property name="text">
-               <string>Edit</string>
-              </property>
-             </widget>
-            </item>
             <item>
              <widget class="QPushButton" name="btnaddgrpmem">
               <property name="text">
@@ -713,6 +765,9 @@
               <height>0</height>
              </size>
             </property>
+            <property name="inputMask">
+             <string>AA00</string>
+            </property>
            </widget>
           </item>
          </layout>
@@ -730,17 +785,37 @@
            <widget class="QListWidget" name="listWborrowlist_4"/>
           </item>
           <item>
-           <widget class="QLineEdit" name="leduserborrow"/>
+           <widget class="QGroupBox" name="gboxuseraddborrow">
+            <property name="title">
+             <string>Add</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_11">
+             <item>
+              <widget class="QLineEdit" name="leduserborrow">
+               <property name="placeholderText">
+                <string>enter name of book</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btngboxuseraddok">
+               <property name="text">
+                <string>Ok</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btngboxuseradddiscard">
+               <property name="text">
+                <string>Discard</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_24">
-            <item>
-             <widget class="QPushButton" name="btneditborrowuser">
-              <property name="text">
-               <string>Edit</string>
-              </property>
-             </widget>
-            </item>
             <item>
              <widget class="QPushButton" name="btnaddborrowuser">
               <property name="text">

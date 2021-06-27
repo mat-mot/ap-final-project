@@ -28,7 +28,7 @@ public:
     void setNumofbook(int value);
     QList<QString> getBorrowlist() const;
     void setBorrowlist(const QList<QString> &value);
-    bool contains (QString & n ) ;
+    bool contains (QString & n ) ;//find "n" in data that exist in this class
 };
 
 #endif // BOOK_H

@@ -40,6 +40,11 @@ void register_login::on_registerboxbtnregister_clicked()
         QMessageBox ::information(this , "wrong" , "your password doesn't match fill again") ;
         return;
     }
+    if (ui->registerboxledusername->text() == chid_f.ucontains(ui->registerboxledusername->text()).getUsername())
+    {
+        QMessageBox::information(this , "warning" , "the user that you want to create already existed !!!") ;
+        return  ;
+    }
     if (ui->registerboxledemail->text().isEmpty() ||ui->registerboxledfullname->text().isEmpty()||ui->registerboxledusername->text().isEmpty()||ui->registerboxledpass->text().isEmpty() )
     {
         QMessageBox ::information(this , "error" , "please fill all blanck space or fild !");

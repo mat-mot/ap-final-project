@@ -27,8 +27,9 @@ public:
     void setBorrowbook(const QList<QString> &value);
     unsigned long long getHashedpassword() const;
     void setHashedpassword(unsigned long long value);
-    bool contains (QString & n ) ;
+    bool contains (QString & n ) ;//find "n" in data that exist in this class
     ~lib_user () ;
+
 };
 
 #endif // USER_H

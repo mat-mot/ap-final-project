@@ -102,8 +102,9 @@ void maplibrary::on_actionmanage_triggered()
 {
     Manage  * m = new  Manage () ;
     m->setChild_f( m_data ) ;
-
     m->exec() ;
+    this->setData(m->getChild_f()) ;
+    ui->cboxtype->update() ;
 
 }
 
