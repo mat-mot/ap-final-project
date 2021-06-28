@@ -45,14 +45,17 @@ void register_login::on_registerboxbtnregister_clicked()
         QMessageBox::information(this , "warning" , "the user that you want to create already existed !!!") ;
         return  ;
     }
-    if (ui->registerboxledemail->text().isEmpty() ||ui->registerboxledfullname->text().isEmpty()||ui->registerboxledusername->text().isEmpty()||ui->registerboxledpass->text().isEmpty() )
+    if (ui->registerboxledemail->text().isEmpty() ||
+            ui->registerboxledfullname->text().isEmpty()||
+            ui->registerboxledusername->text().isEmpty()||
+            ui->registerboxledpass->text().isEmpty() )
     {
-        QMessageBox ::information(this , "error" , "please fill all blanck space or fild !");
+        QMessageBox ::information(this , "error" , "please fill all blanks space !");
         return;
     }
     if (!ui->registerboxcheckboxagreement->isChecked())
     {
-        QMessageBox ::information(this , "agreement" , "please read and accept the agreement then register again") ;
+        QMessageBox ::information(this,"Terms","please read and accept the Terms then register again");
         return;
     }
     if (!ui->registerboxledemail->hasAcceptableInput())
@@ -76,6 +79,7 @@ void register_login::on_registerboxbtnregister_clicked()
     ui->registerboxledfullname->clear() ;
     ui->registerboxledpcode->clear() ;
     ui->registerboxledpassagain->clear() ;
+    ui->registerboxcheckboxagreement->setChecked(false);
     ui->btnback->setEnabled(false) ;
 }
 
@@ -106,7 +110,6 @@ void register_login::on_loginbtnforgetpass_clicked()
     ui->btnback->setEnabled(true) ;
 }
 
-
 void register_login::on_loginbtnpassechomod_clicked(bool checked)
 {
     if (checked)
@@ -119,31 +122,33 @@ void register_login::on_loginbtnpassechomod_clicked(bool checked)
     }
 }
 
-
-
-
 void register_login::on_infobtnvarify_clicked()
 {
+    if (ui->infoledemail->text().isEmpty()||ui->infoledusername->text().isEmpty())
+    {
+        ui->infolbldetail->setText("please type the username and email !!") ;
+        ui->infolbldetail->setStyleSheet("QLabel {color : red}");
+        return;
+    }
     lib_user tmp , tp ;
-    QString lbldatails ;
     tmp.setUsername(ui->infoledusername->text()) ;
     tmp.setEmailaddres(ui->infoledemail->text()) ;
     tp = chid_f.ucontains(ui->infoledusername->text()) ;
     if (tp.getUsername() != tmp.getUsername() || tp.getEmailaddres() != tmp.getEmailaddres())
     {
-        lbldatails = ui->infolbldetail->text() ;
         ui->infolbldetail->setText("your user or email dose not exist !!") ;
+        ui->infolbldetail->setStyleSheet("QLabel {color : red}");
         return;
     }
     QMessageBox::information(this , "recovery" , "we send new password to your email plaese login again") ;
     ui->infoledusername->clear() ;
     ui->infoledemail->clear() ;
-    ui->infolbldetail->setText(lbldatails) ;
+    ui->infolbldetail->setText("please enter the information and\n we send the new password to your email .") ;
+    ui->infolbldetail->setStyleSheet("QLabel {color : black}");
     ui->infobox->hide() ;
     ui->loginbox->show() ;
     ui->btnback->setEnabled(false) ;
 }
-
 
 void register_login::on_loginbtnlogin_clicked()
 {
@@ -168,7 +173,6 @@ void register_login::on_loginbtnlogin_clicked()
     this->close() ;
 }
 
-
 void register_login::on_registerboxledemail_textChanged()
 {
     if (ui->registerboxledemail->hasAcceptableInput())
@@ -187,7 +191,6 @@ void register_login::setCuretnuser(const lib_user &newCuretnuser)
     curetnuser = newCuretnuser;
 }
 
-
 void register_login::on_infoledemail_textChanged()
 {
     if (ui->infoledemail->hasAcceptableInput())
@@ -196,7 +199,6 @@ void register_login::on_infoledemail_textChanged()
         ui->infoledemail->setStyleSheet("QLineEdit {color : red}") ;
 }
 
-
 void register_login::on_regisretboxbtnpcodeinfo_clicked()
 {
     QMessageBox::information(this , "pcode" , "pcode is a personely code that you taked from library admin\n"
@@ -204,3 +206,10 @@ void register_login::on_regisretboxbtnpcodeinfo_clicked()
     " library and if you don't have that just leave the box empty" ) ;
 }
 
+void register_login::on_registerboxclbagreement_clicked()
+{
+    QString tmp = "The terms of use of the program are in accordance\n"
+"with the laws and orders of the Islamic Republic of Iran" ;
+    ui->registerboxcheckboxagreement->setChecked(true) ;
+    QMessageBox::information(this , "Terms" , tmp) ;
+}

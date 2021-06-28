@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>559</width>
-    <height>592</height>
+    <width>600</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -432,24 +432,33 @@
              <height>5</height>
             </size>
            </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QCommandLinkButton" name="registerboxclbagreement">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="minimumSize">
+            <size>
+             <width>250</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
-             <width>110</width>
+             <width>200</width>
              <height>30</height>
             </size>
            </property>
            <property name="text">
-            <string>agreement !</string>
+            <string>agree to terms and servicies</string>
            </property>
            <property name="icon">
             <iconset>
@@ -467,16 +476,13 @@
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_9">
+          <spacer name="horizontalSpacer">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::MinimumExpanding</enum>
-           </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>150</width>
+             <width>40</width>
              <height>20</height>
             </size>
            </property>

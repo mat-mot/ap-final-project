@@ -6,15 +6,12 @@ maplibrary::maplibrary(QWidget *parent)
 {
     ui->setupUi(this);
     this->m_data.load() ;
-    //ui->Manage->setEnabled(false) ;
-    //ui->actionmanage->setEnabled(false) ;
+    ui->Manage->setEnabled(false) ;
+    ui->actionmanage->setEnabled(false) ;
     ui->btnreserve->setEnabled(false) ;
     ui->actionLogout->setEnabled(false) ;
     ui->actionEdit->setEnabled(false) ;
-    for (int i=0 ; i<20 ; i++)
-    {
-        ui->listofthings->addItem("book" + QString::number(i+1) ) ;
-    }
+
 }
 
 maplibrary::~maplibrary()
@@ -46,7 +43,6 @@ void maplibrary::closeEvent(QCloseEvent *event)
         event->ignore();
 }
 
-
 void maplibrary::on_actionlogin_triggered()
 {
     register_login *n = new register_login () ;
@@ -70,7 +66,6 @@ void maplibrary::on_actionlogin_triggered()
         ui->actionmanage->setEnabled(true) ;
     }
 }
-
 
 void maplibrary::on_actionSave_triggered()
 {
@@ -104,11 +99,8 @@ void maplibrary::on_actionmanage_triggered()
     m->setChild_f( m_data ) ;
     m->exec() ;
     this->setData(m->getChild_f()) ;
-    ui->cboxtype->update() ;
-
+    delete m ;
 }
-
-
 
 void maplibrary::on_actionLogin_triggered()
 {
@@ -119,6 +111,7 @@ void maplibrary::on_actionRegister_triggered()
 {
     this->on_actionLogin_triggered() ;
 }
+
 void maplibrary::on_actionLogout_triggered()
 {
     ui->Manage->setEnabled(false) ;

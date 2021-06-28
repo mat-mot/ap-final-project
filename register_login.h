@@ -60,6 +60,8 @@ private slots:
     void on_regisretboxbtnpcodeinfo_clicked();
 
 
+    void on_registerboxclbagreement_clicked();
+
 private:
     Ui::register_login *ui;
     lib_file chid_f ;

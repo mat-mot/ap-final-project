@@ -182,12 +182,10 @@ void Manage::on_lineEdit_textChanged(const QString &arg1)
         ui->listWidget->clear() ;
 }
 
-
 void Manage::on_comboBox_currentTextChanged(const QString &arg1)
 {
     this->on_comboBox_currentIndexChanged(arg1) ;
 }
-
 
 void Manage::on_btnadd_clicked()
 {
@@ -306,6 +304,7 @@ bool Manage :: confirm_condition (QString a)
     }
     return true;
 }
+
 void Manage::on_btnsave_clicked()
 {
     QString type  = ui->comboBox->currentText() ;
@@ -505,7 +504,6 @@ void Manage::on_btnsave_clicked()
     ui->ledusername->setStyleSheet("QLineEdit {color : black}") ;
 }
 
-
 void Manage::on_btndiscard_clicked()
 {
     QString type  = ui->comboBox->currentText() ;
@@ -555,7 +553,6 @@ void Manage::on_btndiscard_clicked()
     btnadd = false ;
 }
 
-
 void Manage::on_ledemailaddres_textChanged()
 {
     if (ui->ledemailaddres->hasAcceptableInput())
@@ -573,13 +570,10 @@ void Manage::closeEvent(QCloseEvent *event)
         event->ignore() ;
 }
 
-
 void Manage::on_btnexit_clicked()
 {
     this->close() ;
 }
-
-
 
 void Manage::on_ledname_textChanged()
 {
@@ -588,7 +582,6 @@ void Manage::on_ledname_textChanged()
     else
         ui->ledname->setStyleSheet("QLineEdit {color : red}") ;
 }
-
 
 void Manage::on_listWidget_itemClicked(QListWidgetItem *item)
 {
@@ -632,7 +625,6 @@ void Manage::on_listWidget_itemClicked(QListWidgetItem *item)
     }
 }
 
-
 void Manage::on_btnaddborrow_clicked()
 {
     ui->gboxbookaddborrow->show() ;
@@ -641,7 +633,6 @@ void Manage::on_btnaddborrow_clicked()
     ui->btnsave->setEnabled(false) ;
     ui->btndiscard->setEnabled(false) ;
 }
-
 
 void Manage::on_btngboxbookaddok_clicked()
 {
@@ -664,8 +655,6 @@ void Manage::on_btngboxbookaddok_clicked()
     ui->btnsave->setEnabled(true);
     ui->btndiscard->setEnabled(true);
 }
-
-
 
 void Manage::on_btngboxbookadddiscard_clicked()
 {
@@ -754,7 +743,6 @@ void Manage::on_btndelete_clicked()
     }
 }
 
-
 void Manage::on_btnedit_clicked()
 {
     if (ui->listWidget->selectedItems().size()==0)
@@ -790,7 +778,6 @@ void Manage::on_btnedit_clicked()
     }
 }
 
-
 void Manage::on_btndeleteborrow_clicked()
 {
     if (ui->listWborrowlistbook->selectedItems().size()==0)
@@ -801,7 +788,6 @@ void Manage::on_btndeleteborrow_clicked()
     ui->listWborrowlistbook->takeItem(ui->listWborrowlistbook->currentRow()) ;
 }
 
-
 void Manage::on_btnaddgrpmem_clicked()
 {
     ui->gboxgroupaddmember->show() ;
@@ -810,7 +796,6 @@ void Manage::on_btnaddgrpmem_clicked()
     ui->btnsave->setEnabled(false) ;
     ui->btndiscard->setEnabled(false) ;
 }
-
 
 void Manage::on_btndeletegrpmem_clicked()
 {
@@ -821,7 +806,6 @@ void Manage::on_btndeletegrpmem_clicked()
     }
     ui->listWgrpmember->takeItem(ui->listWgrpmember->currentRow()) ;
 }
-
 
 void Manage::on_btngboxgroupaddok_clicked()
 {
@@ -845,7 +829,6 @@ void Manage::on_btngboxgroupaddok_clicked()
     ui->btndiscard->setEnabled(true);
 }
 
-
 void Manage::on_btngboxgroupadddiscard_clicked()
 {
     ui->ledgroupmember->clear() ;
@@ -855,4 +838,3 @@ void Manage::on_btngboxgroupadddiscard_clicked()
     ui->btnsave->setEnabled(true);
     ui->btndiscard->setEnabled(true);
 }
-
