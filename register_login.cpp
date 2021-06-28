@@ -191,6 +191,11 @@ void register_login::setCuretnuser(const lib_user &newCuretnuser)
     curetnuser = newCuretnuser;
 }
 
+void register_login::registerfild()
+{
+    this->on_loginbtnregister_clicked();
+}
+
 void register_login::on_infoledemail_textChanged()
 {
     if (ui->infoledemail->hasAcceptableInput())

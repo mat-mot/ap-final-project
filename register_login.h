@@ -32,7 +32,7 @@ public:
 
     const lib_user &getCuretnuser() const;
     void setCuretnuser(const lib_user &newCuretnuser);
-
+    void registerfild ();
 private slots:
 
     void on_registerboxbtnregister_clicked();

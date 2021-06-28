@@ -36,7 +36,7 @@ void lib_file::load()
     QFile acc("user.info") ;
     if (!acc.open(QIODevice::ReadOnly)&& acc.exists())
     {
-        qInfo() << acc.errorString() << endl  ;
+        qInfo() << acc.errorString() << __LINE__ <<endl  ;
         return;
     }
     QTextStream accstr (&acc) ;

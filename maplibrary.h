@@ -28,6 +28,7 @@ public:
 
     lib_file data() const;
     void setData(const lib_file &data);
+    bool check_condition_for_borrowbook (lib_book tmp);
 
 private:
     Ui::maplibrary *ui;
@@ -48,5 +49,17 @@ private slots:
     void on_actionLogin_triggered();
     void on_actionRegister_triggered();
     void on_actionLogout_triggered();
+    void on_actionEdit_triggered();
+    void on_cboxtype_currentTextChanged(const QString &arg1);
+    void on_searchbox_textChanged(const QString &arg1);
+    void on_listofthings_itemClicked(QListWidgetItem *item);
+    void on_btnlogin_logout_clicked();
+    void on_btnmanage_clicked();
+    void on_btnsave_clicked();
+    void on_btnexit_clicked();
+    void on_btnapplyforborrow_clicked();
+    void on_actionBook_triggered();
+    void on_actionGroup_triggered();
+    void on_actionUser_triggered();
 };
 #endif // MAPLIBRARY_H

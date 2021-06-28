@@ -76,7 +76,7 @@ void Manage::setChild_f(lib_file &value)
     child_f = value;
 }
 
-void Manage::on_comboBox_currentIndexChanged(const QString &arg1)
+void Manage::on_comboBox_currentTextChanged(const QString &arg1)
 {
     clearfild("Users") ;
     clearfild("Books") ;
@@ -180,11 +180,6 @@ void Manage::on_lineEdit_textChanged(const QString &arg1)
     }
     else if (type == "Non")
         ui->listWidget->clear() ;
-}
-
-void Manage::on_comboBox_currentTextChanged(const QString &arg1)
-{
-    this->on_comboBox_currentIndexChanged(arg1) ;
 }
 
 void Manage::on_btnadd_clicked()
@@ -316,7 +311,6 @@ void Manage::on_btnsave_clicked()
         lib_book tmp ;
         tmp.setAuthor(ui->ledauthor->text()) ;
         tmp.setName(ui->ledname->text()) ;
-        tmp.setNumofbook(ui->spinBoxavailablebook->text().toInt()) ;
         tmp.setPublishers(ui->ledpublisher->text()) ;
         tmp.setSubject(ui->ledsubject->text()) ;
         for (int i=0 ; i<ui->listWborrowlistbook->count() ; i++)
@@ -324,6 +318,7 @@ void Manage::on_btnsave_clicked()
             m->push_back(ui->listWborrowlistbook->item(i)->text()) ;
         }
         tmp.setBorrowlist(*m) ;
+        tmp.setNumofbook(ui->spinBoxavailablebook->text().toInt()-tmp.getBorrowlist().size()) ;
         child_f.book().push_back(tmp) ;
         delete m ;
         clearfild("Books") ;
@@ -455,6 +450,11 @@ void Manage::on_btnsave_clicked()
     {
         QString oldusername = ui->listWidget->currentItem()->text() ;
         QString newusername = ui->ledusername->text() ;
+        QString pass ;
+        if (ui->lednewpassword->text().isEmpty())
+            pass = ui->ledpassword->text() ;
+        else
+            pass = ui->lednewpassword->text() ;
         if (oldusername != newusername)
         {
             for (int i=0 ; i<child_f.book().size() ;i++)
@@ -481,7 +481,7 @@ void Manage::on_btnsave_clicked()
             {
                 child_f.user()[i].setEmailaddres(ui->ledemailaddres->text()) ;
                 child_f.user()[i].setFullname(ui->ledfullname->text()) ;
-                child_f.user()[i].setHashedpassword(qHash(ui->lednewpassword->text())) ;
+                child_f.user()[i].setHashedpassword(qHash(pass)) ;
                 child_f.user()[i].setPcode(ui->ledpcode->text()) ;
                 child_f.user()[i].setUsername(newusername) ;
                 child_f.user()[i].setBorrowbook(*m) ;
@@ -497,6 +497,10 @@ void Manage::on_btnsave_clicked()
         delete  m ;
         ui->lblpassword->show() ;
         ui->ledpassword->show() ;
+        if (current_user.getUsername() != "")
+        {
+            this->close() ;
+        }
     }
     btnadd = false ;
     ui->ledname->setStyleSheet("QLineEdit {color : black}") ;
@@ -506,6 +510,10 @@ void Manage::on_btnsave_clicked()
 
 void Manage::on_btndiscard_clicked()
 {
+    if (current_user.getUsername() != "")
+    {
+        this->close();
+    }
     QString type  = ui->comboBox->currentText() ;
     if (type == "Books")
     {
@@ -561,18 +569,29 @@ void Manage::on_ledemailaddres_textChanged()
         ui->ledemailaddres->setStyleSheet("QLineEdit {color : red}") ;
 }
 
-void Manage::closeEvent(QCloseEvent *event)
-{
-    int ret = QMessageBox::critical(this , "close" , "are you sure ?!!!" , "Yes" , "No") ;
-    if (ret == 0)
-        event->accept() ;
-    else
-        event->ignore() ;
-}
+//void Manage::closeEvent(QCloseEvent *event)
+//{
+//    if (lib_file:: ret == 1)
+//        event->accept() ;
+//    int ret = QMessageBox::critical(this , "close" , "are you sure ?!!!" , "Yes" , "No") ;
+//    if (ret == 0)
+//        event->accept() ;
+//    else
+//        event->ignore() ;
+//}
 
 void Manage::on_btnexit_clicked()
 {
     this->close() ;
+}
+
+void Manage::current_user_edit_prof()
+{
+    ui->comboBox->setCurrentText("Users") ;
+    ui->listWidget->clear() ;
+    ui->listWidget->addItem(current_user.getUsername()) ;
+    ui->listWidget->setCurrentRow(0) ;
+    this->on_btnedit_clicked() ;
 }
 
 void Manage::on_ledname_textChanged()
@@ -771,6 +790,19 @@ void Manage::on_btnedit_clicked()
         ui->groupBoxuser->setEnabled(true) ;
         ui->btnsave->setEnabled(true);
         ui->btndiscard->setEnabled(true) ;
+        if (current_user.getUsername() != "")
+        {
+            lib_user tmp = child_f.ucontains(current_user.getUsername()) ;
+            ui->ledusername->setText(tmp.getUsername()) ;
+            ui->ledfullname->setText(tmp.getFullname()) ;
+            ui->ledemailaddres->setText(tmp.getEmailaddres()) ;
+            ui->ledpcode->setText(tmp.getPcode()) ;
+            ui->listWborrowlist_4->clear();
+            for (int i=0 ; i<tmp.getBorrowbook().size() ; i++)
+            {
+                ui->listWborrowlist_4->addItem(tmp.getBorrowbook().at(i)) ;
+            }
+        }
     }
     else if (type == "All" || type == "Non")
     {
@@ -838,3 +870,37 @@ void Manage::on_btngboxgroupadddiscard_clicked()
     ui->btnsave->setEnabled(true);
     ui->btndiscard->setEnabled(true);
 }
+
+void Manage::on_listWidget_itemDoubleClicked()
+{
+    this->on_btnedit_clicked() ;
+}
+
+const lib_user &Manage::getCurrent_user() const
+{
+    return current_user;
+}
+
+void Manage::setCurrent_user(const lib_user &newCurrent_user)
+{
+    current_user = newCurrent_user;
+}
+
+void Manage::groupmanage()
+{
+    this->on_comboBox_currentTextChanged("Groups");
+    ui->comboBox->setCurrentIndex(3);
+}
+
+void Manage::bookmanage()
+{
+    this->on_comboBox_currentTextChanged("Books");
+    ui->comboBox->setCurrentIndex(2);
+}
+
+void Manage::usermanage()
+{
+    this->on_comboBox_currentTextChanged("Users");
+    ui->comboBox->setCurrentIndex(4);
+}
+

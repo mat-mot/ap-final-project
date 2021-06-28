@@ -32,8 +32,14 @@ public:
     lib_file getChild_f() const;
     void setChild_f(lib_file &value);
     bool confirm_condition (QString a) ;
+    const lib_user &getCurrent_user() const;
+    void setCurrent_user(const lib_user &newCurrent_user);
+    void groupmanage ();
+    void bookmanage ();
+    void usermanage () ;
+    void current_user_edit_prof () ;
 private slots:
-    void on_comboBox_currentIndexChanged(const QString &arg1);
+    //void on_comboBox_currentIndexChanged(const QString &arg1);
 
     void on_lineEdit_textChanged(const QString &arg1);
 
@@ -50,7 +56,6 @@ private slots:
     void on_ledemailaddres_textChanged();
 
     void on_btnexit_clicked();
-
 
 
     void on_ledname_textChanged();
@@ -78,13 +83,16 @@ private slots:
 
     void on_btngboxgroupadddiscard_clicked();
 
+    void on_listWidget_itemDoubleClicked();
+
 private:
     Ui::Manage *ui;
     lib_file child_f ;
     bool btnadd = false ;
+    lib_user current_user ;
     // QWidget interface
 protected:
-    void closeEvent(QCloseEvent *event);
+    //void closeEvent(QCloseEvent *event);
 };
 
 #endif // MANAGE_H
