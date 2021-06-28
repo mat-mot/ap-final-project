@@ -70,6 +70,14 @@ private slots:
 
     void on_btndeleteborrow_clicked();
 
+    void on_btnaddgrpmem_clicked();
+
+    void on_btndeletegrpmem_clicked();
+
+    void on_btngboxgroupaddok_clicked();
+
+    void on_btngboxgroupadddiscard_clicked();
+
 private:
     Ui::Manage *ui;
     lib_file child_f ;
