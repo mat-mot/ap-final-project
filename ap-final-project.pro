@@ -15,7 +15,7 @@ SOURCES += \
     Class_source\lib_user.cpp \
     main.cpp \
     Manage_form\manage.cpp \
-    maplibrary.cpp \
+    Maplibrary_form\maplibrary.cpp \
     Rgister_login_form\register_login.cpp
 
 HEADERS += \
@@ -24,12 +24,12 @@ HEADERS += \
     Class_source\lib_group.h \
     Class_source\lib_user.h \
     Manage_form\manage.h \
-    maplibrary.h \
+    Maplibrary_form\maplibrary.h \
     Rgister_login_form\register_login.h
 
 FORMS += \
     Manage_form\manage.ui \
-    maplibrary.ui \
+    Maplibrary_form\maplibrary.ui \
     Rgister_login_form\register_login.ui
 
 # Default rules for deployment.
