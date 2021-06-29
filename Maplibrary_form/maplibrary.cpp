@@ -533,7 +533,7 @@ void maplibrary::on_listofthings_itemDoubleClicked(QListWidgetItem *item)
     {
         lib_group temp = m_data.gcontains(item->text()) ;
         lib_book tmp = m_data.bcontains(item->text()) ;
-        if (tmp.getName() != "")
+        if (tmp.getName() != ""&&tmp.getName()==item->text())
         {
             //lib_book tmp = m_data.bcontains(item->text()) ;
             Manage  * m = new  Manage () ;
@@ -543,7 +543,7 @@ void maplibrary::on_listofthings_itemDoubleClicked(QListWidgetItem *item)
             this->setData(m->getChild_f()) ;
             delete m ;
         }
-        if (temp.getGrpname() != "")
+        if (temp.getGrpname() != ""&&temp.getGrpname()==item->text())
         {
             //lib_group tmp = m_data.gcontains(item->text()) ;
             Manage  * m = new  Manage () ;

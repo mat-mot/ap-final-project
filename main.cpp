@@ -1,10 +1,11 @@
-#include "maplibrary.h"
+#include "Maplibrary_form\maplibrary.h"
 
 #include <QApplication>
-
+#include<direct.h>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    -mkdir(".\\data");
     maplibrary w;
     w.show();
     return a.exec();

@@ -33,7 +33,7 @@ void lib_file::setGroup(const QList<lib_group> &group)
 
 void lib_file::load()
 {
-    QFile acc("user.info") ;
+    QFile acc("data\\user.info") ;
     if (!acc.open(QIODevice::ReadOnly)&& acc.exists())
     {
         qInfo() << acc.errorString() << __LINE__ <<endl  ;
@@ -65,7 +65,7 @@ void lib_file::load()
         }
     }
     acc.close() ;
-    QFile boo("book.info") ;
+    QFile boo("data\\book.info") ;
     if (!boo.open(QIODevice::ReadOnly)&& boo.exists())
     {
         qInfo() << boo.errorString() << endl  ;
@@ -97,7 +97,7 @@ void lib_file::load()
         }
     }
     boo.close() ;
-    QFile grp("group.info") ;
+    QFile grp("data\\group.info") ;
     if (!grp.open(QIODevice::ReadOnly)&& grp.exists())
     {
         qInfo() << grp.errorString() << endl  ;
@@ -111,16 +111,16 @@ void lib_file::load()
         {
             lib_group tmp ;
             tmp.setGrpname(grpstr.readLine()) ;
-            if (grpstr.readLine() == "[")
+            //if (grpstr.readLine() == "[")
+            //{
+            QList<QString> tp ;
+            for (;grpstr.readLine() != "}";)
             {
-                QList<QString> tp ;
-                for (;grpstr.readLine() != "]";)
-                {
-                    tp.push_front(grpstr.readLine()) ;
-                }
-                tmp.setGrpmember(tp) ;
+                tp.push_front(grpstr.readLine()) ;
             }
-            grpstr.readLine() ;
+            tmp.setGrpmember(tp) ;
+            //}
+            //grpstr.readLine() ;
             this->m_group.push_front(tmp) ;
         }
     }
@@ -129,7 +129,7 @@ void lib_file::load()
 
 void lib_file::save()
 {
-    QFile acc ("user.info") ;
+    QFile acc ("data\\user.info") ;
     if (!acc.open(QIODevice::WriteOnly))
     {
         qInfo() << acc.errorString() << endl ;
@@ -156,7 +156,7 @@ void lib_file::save()
         streem <<  "}\n" ;
     }
     acc.close() ;
-    QFile boo ("book.info") ;
+    QFile boo ("data\\book.info") ;
     if (!boo.open(QIODevice::WriteOnly))
     {
         qInfo() << boo.errorString() << endl ;
@@ -183,8 +183,9 @@ void lib_file::save()
         boostr <<  "}\n" ;
     }
     boo.close() ;
-    QFile grp ("group.info") ;
-    if (!grp.open(QIODevice::WriteOnly))
+    QFile grp ("data\\group.info") ;
+    //grp.open(QIODevice::WriteOnly|QIODevice::Text);
+    if (!grp.open(QIODevice::WriteOnly|QIODevice::Text))
     {
         qInfo() << grp.errorString() << endl ;
         QMessageBox:: information(nullptr , "bad acces" , "file can not open and data was not saved make sure that save it again !") ;
@@ -196,13 +197,13 @@ void lib_file::save()
     {
         grpstr << "{\n" ;
         grpstr << ito->getGrpname() << "\n" ;
-        grpstr << "[\n" ;
+        //grpstr << "[\n" ;
         //for (auto iit = ito->getGrpmember().begin() ; iit != ito->getGrpmember().end() && ito->getGrpmember().size()>0;++iit)
         for (int i=0 ; i<ito->getGrpmember().size() ; i++)
         {
-            boostr << "\n" <<ito->getGrpmember().at(i) << "\n" ;
+            boostr  <<ito->getGrpmember()[i] << "\n" ;
         }
-        grpstr << "]\n" ;
+        //grpstr << "]\n" ;
         grpstr << "}\n" ;
     }
     grp.close() ;
