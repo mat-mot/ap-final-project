@@ -111,16 +111,16 @@ void lib_file::load()
         {
             lib_group tmp ;
             tmp.setGrpname(grpstr.readLine()) ;
-            //if (grpstr.readLine() == "[")
-            //{
-            QList<QString> tp ;
-            for (;grpstr.readLine() != "}";)
+            if (grpstr.readLine() == "[")
             {
-                tp.push_front(grpstr.readLine()) ;
+                QList<QString> tp ;
+                for (;grpstr.readLine() != "}";)
+                {
+                    tp.push_front(grpstr.readLine()) ;
+                }
+                tmp.setGrpmember(tp) ;
             }
-            tmp.setGrpmember(tp) ;
-            //}
-            //grpstr.readLine() ;
+            grpstr.readLine() ;
             this->m_group.push_front(tmp) ;
         }
     }
@@ -197,13 +197,14 @@ void lib_file::save()
     {
         grpstr << "{\n" ;
         grpstr << ito->getGrpname() << "\n" ;
-        //grpstr << "[\n" ;
+        grpstr << "[\n" ;
+        //QString temp ;
         //for (auto iit = ito->getGrpmember().begin() ; iit != ito->getGrpmember().end() && ito->getGrpmember().size()>0;++iit)
         for (int i=0 ; i<ito->getGrpmember().size() ; i++)
         {
-            boostr  <<ito->getGrpmember()[i] << "\n" ;
+            grpstr  << ito->getGrpmember().at(i) << "\n" ;
         }
-        //grpstr << "]\n" ;
+        grpstr << "]\n" ;
         grpstr << "}\n" ;
     }
     grp.close() ;
