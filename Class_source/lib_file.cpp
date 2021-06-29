@@ -92,7 +92,7 @@ void lib_file::load()
                 }
                 tmp.setBorrowlist(tp) ;
             }
-            accstr.readLine() ;
+            boostr.readLine() ;
             this->m_book.push_front(tmp) ;
         }
     }
