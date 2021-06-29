@@ -20,6 +20,17 @@ maplibrary::maplibrary(QWidget *parent)
     ui->cboxtype->addItem("Books") ;
     ui->cboxtype->addItem("Groups") ;
     this->on_cboxtype_currentTextChanged("All") ;
+    if (m_data.user().size()==0)
+    {
+        lib_user tmp  ;
+        QString n = "ADMIN" ;
+        tmp.setFullname("ADMIN");
+        tmp.setHashedpassword(qHash(n));
+        tmp.setUsername("ADMIN");
+        tmp.setPcode("AA01") ;
+        tmp.setEmailaddres("ADMIN@ADMIN.com");
+        m_data.user().push_back(tmp) ;
+    }
 }
 
 maplibrary::~maplibrary()
@@ -116,7 +127,12 @@ void maplibrary::on_actionExit_triggered()
 
 void maplibrary::on_actionContact_Us_triggered()
 {
-    QMessageBox::information(this , "Contact Us" , "Phone number : 09015743537\nAddress : University of Isfahan , Ansar building" ) ;
+    QString tmp ;
+    tmp += "Phone number : 09015743537\nAddress : University of Isfahan , Ansar building\n" ;
+    tmp += "Telegram ID : @Mat-Mot\nInstgram ID : matin_motmaen\n";
+    tmp += "Git repo : https://github.com/mat-mot/ap-final-project.git\nEmail addres : matinmotmaen@gmail.com\n" ;
+    tmp += "this program wrriten by mat-mot (*_*)" ;
+    QMessageBox::information(this , "Contact Us" , tmp ) ;
 }
 
 void maplibrary::on_actionSave_Data_triggered()
@@ -325,9 +341,9 @@ void maplibrary::on_listofthings_itemClicked(QListWidgetItem *item)
     {
         lib_group temp = m_data.gcontains(item->text()) ;
         lib_book tmp = m_data.bcontains(item->text()) ;
-        if (tmp.getName() != "")
+        if (tmp.getName() != ""&&tmp.getName()==item->text())
         {
-            lib_book tmp = m_data.bcontains(item->text()) ;
+            //lib_book tmp = m_data.bcontains(item->text()) ;
             details += "Name of book is : " + tmp.getName() + "\n" ;
             details += "Author is : " + tmp.getAuthor() + "\n" ;
             details += "Publisher is : " + tmp.getPublishers() + "\n" ;
@@ -342,16 +358,16 @@ void maplibrary::on_listofthings_itemClicked(QListWidgetItem *item)
                 details += "There is no user in the list !!!" ;
             ui->textEdit->setText(details) ;
         }
-        if (temp.getGrpname() != "")
+        if (temp.getGrpname() != ""&&temp.getGrpname()==item->text())
         {
-            lib_group tmp = m_data.gcontains(item->text()) ;
-            details += "Name of group is : "+ tmp.getGrpname() + "\n" ;
+            //lib_group tmp = m_data.gcontains(item->text()) ;
+            details += "Name of group is : "+ temp.getGrpname() + "\n" ;
             details += "list of book that exist in the group was written down : \n" ;
-            for (int i=0 ; i< tmp.getGrpmember().size() ; i++)
+            for (int i=0 ; i< temp.getGrpmember().size() ; i++)
             {
-                details += QString::number(i+1) + "_ " + tmp.getGrpmember().at(i) +"\n" ;
+                details += QString::number(i+1) + "_ " + temp.getGrpmember().at(i) +"\n" ;
             }
-            if (tmp.getGrpmember().size()==0)
+            if (temp.getGrpmember().size()==0)
                 details += "There is no book in the list !!!" ;
             ui->textEdit->setText(details) ;
         }
@@ -414,6 +430,7 @@ void maplibrary::on_btnmanage_clicked()
     m->exec() ;
     this->setData(m->getChild_f()) ;
     delete m ;
+    this->on_cboxtype_currentTextChanged("All") ;
 }
 
 void maplibrary::on_btnsave_clicked()
@@ -461,7 +478,7 @@ void maplibrary::on_actionBook_triggered()
     m->exec() ;
     this->setData(m->getChild_f()) ;
     delete m ;
-
+    this->on_cboxtype_currentTextChanged("All") ;
 }
 
 void maplibrary::on_actionGroup_triggered()
@@ -472,7 +489,7 @@ void maplibrary::on_actionGroup_triggered()
     m->exec() ;
     this->setData(m->getChild_f()) ;
     delete m ;
-
+    this->on_cboxtype_currentTextChanged("All") ;
 }
 
 void maplibrary::on_actionUser_triggered()
@@ -482,7 +499,60 @@ void maplibrary::on_actionUser_triggered()
     m->usermanage();
     m->exec() ;
     this->setData(m->getChild_f()) ;
+    this->on_cboxtype_currentTextChanged("All") ;
     delete m ;
 
 }
 
+void maplibrary::on_listofthings_itemDoubleClicked(QListWidgetItem *item)
+{
+    if (!current_user.getPcode().contains("AA"))
+        return;
+    QString type = ui->cboxtype->currentText() ;
+    if (type == "Books")
+    {
+        lib_book tmp = m_data.bcontains(item->text()) ;
+        Manage  * m = new  Manage () ;
+        m->setChild_f( m_data ) ;
+        m->bookmanage(tmp.getName());
+        m->exec() ;
+        this->setData(m->getChild_f()) ;
+        delete m ;
+    }
+    else if (type == "Groups")
+    {
+        lib_group tmp = m_data.gcontains(item->text()) ;
+        Manage  * m = new  Manage () ;
+        m->setChild_f( m_data ) ;
+        m->groupmanage(tmp.getGrpname());
+        m->exec() ;
+        this->setData(m->getChild_f()) ;
+        delete m ;
+    }
+    else if (type == "All")
+    {
+        lib_group temp = m_data.gcontains(item->text()) ;
+        lib_book tmp = m_data.bcontains(item->text()) ;
+        if (tmp.getName() != "")
+        {
+            //lib_book tmp = m_data.bcontains(item->text()) ;
+            Manage  * m = new  Manage () ;
+            m->setChild_f( m_data ) ;
+            m->bookmanage(tmp.getName());
+            m->exec() ;
+            this->setData(m->getChild_f()) ;
+            delete m ;
+        }
+        if (temp.getGrpname() != "")
+        {
+            //lib_group tmp = m_data.gcontains(item->text()) ;
+            Manage  * m = new  Manage () ;
+            m->setChild_f( m_data ) ;
+            m->groupmanage(temp.getGrpname());
+            m->exec() ;
+            this->setData(m->getChild_f()) ;
+            delete m ;
+        }
+    }
+    this->on_cboxtype_currentTextChanged(type) ;
+}

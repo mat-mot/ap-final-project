@@ -886,16 +886,38 @@ void Manage::setCurrent_user(const lib_user &newCurrent_user)
     current_user = newCurrent_user;
 }
 
-void Manage::groupmanage()
+void Manage::groupmanage(QString groupname )
 {
     this->on_comboBox_currentTextChanged("Groups");
     ui->comboBox->setCurrentIndex(3);
+    if (groupname!="")
+    {
+        for (int i=0 ; i< ui->listWidget->count();i++)
+        {
+            ui->listWidget->setCurrentRow(i) ;
+            if (ui->listWidget->currentItem()->text() == groupname)
+                break;
+        }
+        this->on_listWidget_itemClicked(ui->listWidget->currentItem()) ;
+        this->on_btnedit_clicked() ;
+    }
 }
 
-void Manage::bookmanage()
+void Manage::bookmanage(QString bookname)
 {
     this->on_comboBox_currentTextChanged("Books");
     ui->comboBox->setCurrentIndex(2);
+    if (bookname!="")
+    {
+        for (int i=0 ; i< ui->listWidget->count();i++)
+        {
+            ui->listWidget->setCurrentRow(i) ;
+            if (ui->listWidget->currentItem()->text() == bookname)
+                break;
+        }
+        this->on_listWidget_itemClicked(ui->listWidget->currentItem()) ;
+        this->on_btnedit_clicked() ;
+    }
 }
 
 void Manage::usermanage()

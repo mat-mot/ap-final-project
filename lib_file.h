@@ -8,6 +8,7 @@
 #include <QVector>
 #include <QTextStream>
 #include <QDebug>
+#include <QMessageBox>
 class lib_file
 {
 private:

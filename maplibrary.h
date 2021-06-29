@@ -61,5 +61,6 @@ private slots:
     void on_actionBook_triggered();
     void on_actionGroup_triggered();
     void on_actionUser_triggered();
+    void on_listofthings_itemDoubleClicked(QListWidgetItem *item);
 };
 #endif // MAPLIBRARY_H

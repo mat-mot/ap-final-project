@@ -34,8 +34,8 @@ public:
     bool confirm_condition (QString a) ;
     const lib_user &getCurrent_user() const;
     void setCurrent_user(const lib_user &newCurrent_user);
-    void groupmanage ();
-    void bookmanage ();
+    void groupmanage (QString groupname="");
+    void bookmanage (QString bookname = "");
     void usermanage () ;
     void current_user_edit_prof () ;
 private slots:

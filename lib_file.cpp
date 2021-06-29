@@ -133,6 +133,7 @@ void lib_file::save()
     if (!acc.open(QIODevice::WriteOnly))
     {
         qInfo() << acc.errorString() << endl ;
+        QMessageBox:: information(nullptr , "bad acces" , "file can not open and data was not saved make sure that save it again !") ;
         return;
     }
     QTextStream streem (&acc) ;
@@ -159,6 +160,7 @@ void lib_file::save()
     if (!boo.open(QIODevice::WriteOnly))
     {
         qInfo() << boo.errorString() << endl ;
+        QMessageBox:: information(nullptr , "bad acces" , "file can not open and data was not saved make sure that save it again !") ;
         return;
     }
     QTextStream boostr (&boo) ;
@@ -185,6 +187,7 @@ void lib_file::save()
     if (!grp.open(QIODevice::WriteOnly))
     {
         qInfo() << grp.errorString() << endl ;
+        QMessageBox:: information(nullptr , "bad acces" , "file can not open and data was not saved make sure that save it again !") ;
         return;
     }
     QTextStream grpstr (&grp) ;
