@@ -9,28 +9,28 @@ TARGET = library
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    lib_book.cpp \
-    lib_file.cpp \
-    lib_group.cpp \
-    lib_user.cpp \
+    Class_source\lib_book.cpp \
+    Class_source\lib_file.cpp \
+    Class_source\lib_group.cpp \
+    Class_source\lib_user.cpp \
     main.cpp \
-    manage.cpp \
+    Manage_form\manage.cpp \
     maplibrary.cpp \
-    register_login.cpp
+    Rgister_login_form\register_login.cpp
 
 HEADERS += \
-    lib_book.h \
-    lib_file.h \
-    lib_group.h \
-    lib_user.h \
-    manage.h \
+    Class_source\lib_book.h \
+    Class_source\lib_file.h \
+    Class_source\lib_group.h \
+    Class_source\lib_user.h \
+    Manage_form\manage.h \
     maplibrary.h \
-    register_login.h
+    Rgister_login_form\register_login.h
 
 FORMS += \
-    manage.ui \
+    Manage_form\manage.ui \
     maplibrary.ui \
-    register_login.ui
+    Rgister_login_form\register_login.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

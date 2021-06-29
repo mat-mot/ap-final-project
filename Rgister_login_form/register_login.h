@@ -2,14 +2,14 @@
 #define REGISTER_LOGIN_H
 
 #include <QDialog>
-#include"manage.h"
+#include"Manage_form\manage.h"
 #include <QMainWindow>
 #include <QString>
 #include <QList>
-#include "lib_user.h"
-#include "lib_book.h"
-#include "lib_group.h"
-#include "lib_file.h"
+#include "Class_source\lib_user.h"
+#include "Class_source\lib_book.h"
+#include "Class_source\lib_group.h"
+#include "Class_source\lib_file.h"
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
