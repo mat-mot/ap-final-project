@@ -114,7 +114,7 @@ void lib_file::load()
             if (grpstr.readLine() == "[")
             {
                 QList<QString> tp ;
-                for (;grpstr.readLine() != "}";)
+                for (;grpstr.readLine() != "]";)
                 {
                     tp.push_front(grpstr.readLine()) ;
                 }
@@ -202,7 +202,7 @@ void lib_file::save()
         //for (auto iit = ito->getGrpmember().begin() ; iit != ito->getGrpmember().end() && ito->getGrpmember().size()>0;++iit)
         for (int i=0 ; i<ito->getGrpmember().size() ; i++)
         {
-            grpstr  << ito->getGrpmember().at(i) << "\n" ;
+            grpstr << "\n" <<ito->getGrpmember().at(i) << "\n" ;
         }
         grpstr << "]\n" ;
         grpstr << "}\n" ;
