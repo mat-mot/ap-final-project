@@ -18,4 +18,5 @@ int main(int argc, char *argv[])
  "this program wrriten by mat-mot (*_*)"
  "for AP final project"
  "finished alpha version in 2021/06/28 "
+ "finished gama version in 2021/06/29 "
 */
